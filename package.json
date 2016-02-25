@@ -1,0 +1,19 @@
+{
+  "name": "api-timestamp-micro",
+  "version": "1.0.0",
+  "description": "full stack JavaScript app that supplies timestamp info. for FCC",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pompan129/timestamp-micro.git"
+  },
+  "author": "Kurt Johnson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pompan129/timestamp-micro/issues"
+  },
+  "homepage": "https://github.com/pompan129/timestamp-micro#readme"
+}
