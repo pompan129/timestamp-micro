@@ -3,35 +3,18 @@
  */
 var http = require('http');
 var url = require("url");
+var api = require("./apis");
 
-function parsetime(iso){
-    var date = new Date(iso);
 
-    return JSON.stringify(
-        {
-            "hour": date.getHours(),
-            "minute": date.getMinutes(),
-            "second": date.getSeconds()
-        }
-    )
-}
-
-function unixtime(iso){
-    var date = new Date(iso);
-
-    return JSON.stringify(
-        { "unixtime": date.getTime() }
-    )
-}
 
 var server = http.createServer(function (req, res) {
     res.writeHead(200, { 'Content-Type': 'application/json' });
     var urlData = url.parse(req.url, true);
 
     if(urlData.pathname == '/api/parsetime'){
-        res.end(parsetime(urlData.query.iso));
+        res.end(api.parsetime(urlData.query.iso));
     }else if(urlData.pathname == '/api/unixtime'){
-        res.end(unixtime(urlData.query.iso));
+        res.end(api.unixtime(urlData.query.iso));
     }else{
         return res.end('Index Page');
     }
