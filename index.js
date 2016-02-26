@@ -17,6 +17,10 @@ app.get("/timestamp/*", function (req, res) {
     res.send(api.parsetime(req.params["0"]));
 });
 
+app.get("/whoami/", function (req, res) {
+    res.send(api.whoami(req));
+});
+
 var server = app.listen(process.env.PORT || 8081,  function () {
 
     var host = server.address().address

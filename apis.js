@@ -17,6 +17,13 @@ module.exports = {
                 "natural": natural
             }
         )
+    },
+    whoami: function(req){
+        return JSON.stringify(
+            {
+                "ipaddress": req.ip
+            }
+        )
     }
 
 };
