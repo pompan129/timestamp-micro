@@ -19,9 +19,12 @@ module.exports = {
         )
     },
     whoami: function(req){
+        console.log(req.ips);
         return JSON.stringify(
             {
-                "ipaddress": req.ip
+                "ipaddress": req.ips[0] || req.ip,
+                "language":req.get("Accept-Language").split(",")[0],
+                "software":"TEST"
             }
         )
     }
