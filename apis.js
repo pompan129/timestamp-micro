@@ -22,9 +22,9 @@ module.exports = {
         console.log(JSON.stringify(headers));
         return JSON.stringify(
             {
-                "ipaddress": headers.x-forwarded-for,
-                "language":headers.accept-language,
-                "software":headers.user-agent
+                "ipaddress": headers["x-forwarded-for"],
+                "language":headers["accept-language"].split(",")[0],
+                "software":headers["user-agent"]
             }
         )
     }
