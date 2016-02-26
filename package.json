@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/pompan129/timestamp-micro/issues"
   },
-  "homepage": "https://github.com/pompan129/timestamp-micro#readme"
+  "homepage": "https://github.com/pompan129/timestamp-micro#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
 }

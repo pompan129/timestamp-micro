@@ -4,23 +4,28 @@
 
 
 module.exports = {
-    parsetime: function(iso)
-{
-    var date = new Date(iso);
+    parsetime: function(iso){
+        var months = ["JANUARY", "FEBRUARY", "MARCH", "APRIL","MAY", "JUNE", "JULY", "AUGUST",
+            "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"];
 
-    return JSON.stringify(
-        {
-            "hour": date.getHours(),
-            "minute": date.getMinutes(),
-            "second": date.getSeconds()
-        }
-    )
-},
-unixtime: function(iso) {
-    var date = new Date(iso);
+        var date = isNaN(iso)? new Date(iso): new Date(Number(iso));
+        var natural = date.getTime()? "" + months[date.getUTCMonth()] + " " +
+                                date.getUTCDate() +", " + date.getUTCFullYear(): null;
 
-    return JSON.stringify(
-        {"unixtime": date.getTime()}
-    )
-}
+
+
+        return JSON.stringify(
+            {
+                "unix": date.getTime(),
+                "natural": natural
+            }
+        )
+    },
+    unixtime: function(iso) {
+        var date = new Date(iso);
+
+        return JSON.stringify(
+            {"unixtime": date.getTime()}
+        )
+    }
 };
