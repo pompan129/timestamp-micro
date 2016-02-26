@@ -18,7 +18,7 @@ app.get("/timestamp/*", function (req, res) {
 });
 
 app.get("/whoami/", function (req, res) {
-    res.send(JSON.stringify(req.headers));
+    res.send(api.whoami(req.headers));
 });
 
 var server = app.listen(process.env.PORT || 8081,  function () {
