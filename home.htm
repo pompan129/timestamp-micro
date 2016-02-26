@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FCC: API Projects</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+</head>
+<body>
+<div class="page-header">
+    <h1>FCC: API Projects <small>by Kurt Johnson (pompan129)</small></h1>
+</div>
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2>Timestamp Microservice</h2>
+            <code>http://pompan129-apiproj.herokuapp.com/timestamp/{DATE}</code>
+        </div>
+        <div class="panel-body">
+            <ul>
+                <li>
+                    User Story: I can pass a string as a parameter, and it will check to see whether that string
+                    contains either a unix timestamp or a natural language date (example: January 1, 2016).
+                </li>
+                <li>
+                    <strong>User Story:</strong> If it does, it returns both the Unix timestamp and the natural language
+                    form of that date.
+                </li>
+                <li>
+                    User Story: If it does not contain a date or Unix timestamp, it returns null for those properties.
+                </li>
+            </ul>
+            <h4>Example usage:</h4>
+            <code>http://pompan129-apiproj.herokuapp.com/timestamp/July%2020,%201969</code>
+            <br>
+            <code>http://pompan129-apiproj.herokuapp.com/timestamp/-14256000000</code>
+            <h4>Example Output:</h4>
+            <code>{"unix":-14256000000,"natural":"JULY 20, 1969"}</code>
+        </div>
+    </div>
+</div>
+</body>
+</html>
