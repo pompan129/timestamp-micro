@@ -18,13 +18,13 @@ module.exports = {
             }
         )
     },
-    whoami: function(req){
-        console.log(req.ips);
+    whoami: function(headers){
+        console.log(JSON.stringify(headers));
         return JSON.stringify(
             {
-                "ipaddress": req.ips[0] || req.ip,
-                "language":req.get("Accept-Language").split(",")[0],
-                "software":os.platform()
+                "ipaddress": headers.x-forwarded-for,
+                "language":headers.accept-language,
+                "software":headers.user-agent
             }
         )
     }
