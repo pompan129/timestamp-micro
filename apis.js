@@ -1,7 +1,7 @@
 /**
  * Created by fazbat on 2/25/2016.
  */
-
+var os = require('os');
 
 module.exports = {
     parsetime: function(iso){
@@ -24,7 +24,7 @@ module.exports = {
             {
                 "ipaddress": req.ips[0] || req.ip,
                 "language":req.get("Accept-Language").split(",")[0],
-                "software":"TEST"
+                "software":os.platform()
             }
         )
     }
