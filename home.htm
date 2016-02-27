@@ -19,7 +19,7 @@
         <div class="panel-body">
             <ul>
                 <li>
-                    User Story: I can pass a string as a parameter, and it will check to see whether that string
+                    <strong>User Story:</strong>  I can pass a string as a parameter, and it will check to see whether that string
                     contains either a unix timestamp or a natural language date (example: January 1, 2016).
                 </li>
                 <li>
@@ -27,7 +27,7 @@
                     form of that date.
                 </li>
                 <li>
-                    User Story: If it does not contain a date or Unix timestamp, it returns null for those properties.
+                    <strong>User Story:</strong>  If it does not contain a date or Unix timestamp, it returns null for those properties.
                 </li>
             </ul>
             <h4>Example usage:</h4>
@@ -36,6 +36,25 @@
             <code>http://pompan129-apiproj.herokuapp.com/timestamp/-14256000000</code>
             <h4>Example Output:</h4>
             <code>{"unix":-14256000000,"natural":"JULY 20, 1969"}</code>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2>Request Header Parser Microservice</h2>
+            <code>http://pompan129-apiproj.herokuapp.com/whoami</code>
+        </div>
+        <div class="panel-body">
+            <ul>
+                <li>
+                    <strong>User Story:</strong>  I can get the IP address, language and operating system for my browser.
+                </li>
+
+            </ul>
+            <h4>Example usage:</h4>
+            <code>http://pompan129-apiproj.herokuapp.com/whoami</code>
+
+            <h4>Example Output:</h4>
+            <code>{"ipaddress":"73.192.214.49","language":"en-US","software":"Windows NT 10.0; WOW64"}</code>
         </div>
     </div>
 </div>
