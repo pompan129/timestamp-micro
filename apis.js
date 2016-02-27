@@ -24,7 +24,7 @@ module.exports = {
             {
                 "ipaddress": headers["x-forwarded-for"],
                 "language":headers["accept-language"].split(",")[0],
-                "software":headers["user-agent"]
+                "software":headers["user-agent"].match(/\(([^)]+)\)/)[1]
             }
         )
     }
