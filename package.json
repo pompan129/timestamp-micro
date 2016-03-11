@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/pompan129/timestamp-micro#readme",
   "dependencies": {
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "mongoose": "^4.4.5",
+    "validator": "^5.1.0"
   }
 }
