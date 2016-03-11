@@ -38,7 +38,7 @@ module.exports = {
         if(validator.isURL(href)){
             /*test all urls for http:// or https://. Add if they are missing for database storage*/
             var hasHttp =  /^(https?:\/\/)/i.test(href);
-            if(!hasHttp){href = "https://" + href}
+            if(!hasHttp){href = "http://" + href}
 
             /*search in database for URL. */
             Url.findOne({orig_url:href}, function(err,result){
