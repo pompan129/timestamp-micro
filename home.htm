@@ -57,6 +57,46 @@
             <code>{"ipaddress":"73.192.214.49","language":"en-US","software":"Windows NT 10.0; WOW64"}</code>
         </div>
     </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2>URL Shortener Microservice</h2>
+            <code>http://pompan129-apiproj.herokuapp.com/new/{URL}</code>
+        </div>
+        <div class="panel-body">
+            <ul>
+                <li>
+                    <strong>User Story:</strong>
+                    I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.
+                </li>
+                <li>
+                    <strong>User Story:</strong>
+                    If I pass an invalid URL that doesn't follow the valid http://www.example.com format, the JSON
+                    response will contain an error instead.
+                </li>
+                <li>
+                    <strong>User Story:</strong>
+                    When I visit that shortened URL, it will redirect me to my original link.
+                </li>
+            </ul>
+            <p><sup>**</sup>
+                short-urls are actually longer because of the <strong>lengthy</strong> Heroku domain. But you get
+                the idea
+            </p>
+
+            <h4>Example URL Creation:</h4>
+            <code>http://pompan129-apiproj.herokuapp.com/new/www.netflix.com</code>
+            <h4>Example Creation Output:</h4>
+            <code>{"orig_url":"http://www.netflix.com","short_url":"https://pompan129-apiproj.herokuapp.com/new/8"}</code>
+            <br/><br/>
+            <h4>Example Usage:</h4>
+            <code><a href="https://pompan129-apiproj.herokuapp.com/new/8">
+                https://pompan129-apiproj.herokuapp.com/new/8</a>
+            </code>
+
+            <h4>Will redirect to:</h4>
+            <code><a href="http://www.netflix.com">http://www.netflix.com</a></code>
+        </div>
+    </div>
 </div>
 </body>
 </html>
