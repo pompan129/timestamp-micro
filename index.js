@@ -28,8 +28,8 @@ app.get("/", function (req, res) {
     res.sendFile('home.htm', { root: __dirname});
 });
 
-app.get("/timestamp/*", function (req, res) {
-    res.send(api.parsetime(req.params["0"]));
+app.get("/timestamp/:iso", function (req, res) {
+    res.send(api.parsetime(req.params.iso));
 });
 
 app.get("/whoami/", function (req, res) {
@@ -46,6 +46,23 @@ app.get("/new/:href(*)", (req,res) => {
         res.send(resObj);
     });
 
+});
+
+app.get("/imagesearch/:imageSearchString",(req,res)=>{
+    api.imageSearch(req.params.imageSearchString,req.query.offset, function(objArray){
+        console.log(objArray);
+        res.send(objArray);
+    })
+});
+
+app.get("/latest/imagesearch/",(req,res)=>{
+    api.recentImageSearches(function(err,searches){
+        if(err){
+            console.log(err);
+            res.send(err)
+        }
+        res.send(searches);
+    })
 });
 
 

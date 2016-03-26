@@ -31,9 +31,13 @@
                 </li>
             </ul>
             <h4>Example usage:</h4>
-            <code>http://pompan129-apiproj.herokuapp.com/timestamp/July%2020,%201969</code>
+            <code><a href="http://pompan129-apiproj.herokuapp.com/timestamp/July%2020,%201969">
+                http://pompan129-apiproj.herokuapp.com/timestamp/July%2020,%201969
+            </a></code>
             <br>
-            <code>http://pompan129-apiproj.herokuapp.com/timestamp/-14256000000</code>
+            <code><a href="http://pompan129-apiproj.herokuapp.com/timestamp/-14256000000">
+                http://pompan129-apiproj.herokuapp.com/timestamp/-14256000000
+            </a></code>
             <h4>Example Output:</h4>
             <code>{"unix":-14256000000,"natural":"JULY 20, 1969"}</code>
         </div>
@@ -51,7 +55,9 @@
 
             </ul>
             <h4>Example usage:</h4>
-            <code>http://pompan129-apiproj.herokuapp.com/whoami</code>
+            <code><a href="http://pompan129-apiproj.herokuapp.com/whoami">
+                http://pompan129-apiproj.herokuapp.com/whoami
+            </a></code>
 
             <h4>Example Output:</h4>
             <code>{"ipaddress":"73.192.214.49","language":"en-US","software":"Windows NT 10.0; WOW64"}</code>
@@ -84,7 +90,9 @@
             </p>
 
             <h4>Example URL Creation:</h4>
-            <code>http://pompan129-apiproj.herokuapp.com/new/www.netflix.com</code>
+            <code><a href="http://pompan129-apiproj.herokuapp.com/new/www.netflix.com">
+                http://pompan129-apiproj.herokuapp.com/new/www.netflix.com
+            </a></code>
             <h4>Example Creation Output:</h4>
             <code>{"orig_url":"http://www.netflix.com","short_url":"https://pompan129-apiproj.herokuapp.com/new/8"}</code>
             <br/><br/>
@@ -95,6 +103,66 @@
 
             <h4>Will redirect to:</h4>
             <code><a href="http://www.netflix.com">http://www.netflix.com</a></code>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2>Image Search Abstraction Layer</h2>
+            <code>http://pompan129-apiproj.herokuapp.com/imagesearch/{Search String}</code>
+        </div>
+        <div class="panel-body">
+            <ul>
+                <li>
+                    <strong>User Story:</strong>
+                    I can get the image URLs, alt text and page urls for a set of images relating to a given
+                    search string.
+                </li>
+                <li>
+                    <strong>User Story:</strong>
+                    I can paginate through the responses by adding a ?offset=2 parameter to the URL.
+                </li>
+                <li>
+                    <strong>User Story:</strong>
+                    I can get a list of the most recently submitted search strings.
+                </li>
+            </ul>
+            <h4>Example Image Search:</h4>
+            <code><a href="http://pompan129-apiproj.herokuapp.com/imagesearch/spiderman?offset=5">http://pompan129-apiproj.herokuapp.com/imagesearch/spiderman?offset=5</a></code>
+            <h4>Example Output:</h4>
+            <code>[
+                {
+                "Snippet": "spider man s great ass the spider man costume gives andrew garfield a ...",
+                "URL": "http://static.socialitelife.com/uploads/2015/06/19/spider-man-600x450.jpg",
+                "PageURL": "http://www.socialitelife.com/sony-and-marvel-want-you-to-know-that-spider-man-will-always-be-a-straight-white-male-06-2015"
+                },
+                {
+                "Snippet": "spiderman 257x300 Spider Man Spoiler: Marvel Kills Off Peter Parker!",
+                "URL": "http://investorplace.com/wp-content/uploads/2012/12/spiderman.jpg",
+                "PageURL": "http://investorplace.com/2012/12/spider-man-spoiler-marvel-kills-off-peter-parker/"
+                }, ......</code>
+            <br/><br/>
+            <h4>Example of Recent Searches:</h4>
+            <code>
+                <a href="http://pompan129-apiproj.herokuapp.com/latest/imagesearch/">
+                    http://pompan129-apiproj.herokuapp.com/latest/imagesearch/
+                </a>
+            </code>
+            <h4>Example Output:</h4>
+            <code>
+                [
+                {
+                "term": "clowns",
+                "when": "2016-03-25T01:10:52.047Z"
+                },
+                {
+                "term": "tesla",
+                "when": "2016-03-25T01:14:13.986Z"
+                },
+                {
+                "term": "spiderman",
+                "when": "2016-03-26T01:38:54.577Z"
+                }, ......
+            </code>
         </div>
     </div>
 </div>

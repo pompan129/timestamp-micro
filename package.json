@@ -22,6 +22,7 @@
   "dependencies": {
     "express": "^4.13.4",
     "mongoose": "^4.4.5",
+    "node-bing-api": "^2.4.0",
     "validator": "^5.1.0"
   }
 }

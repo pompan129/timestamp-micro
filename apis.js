@@ -1,10 +1,14 @@
 /**
  * Created by fazbat on 2/25/2016.
  */
+"use strict";
 
 var Url             = require("./models/urls.js");//url model for mongodb/mongoose
 var Counter         = require("./models/counter.js");//counter model for mongodb/mongoose
+var ImageSearch     =require("./models/image-searches");//model for image searches
 var validator       = require('validator');
+var Bing = require("node-bing-api")({ accKey: "DsFPaxjf4tpp+0gXnKSjr4ZxJ4iaDRO6+S8RudtoJmI=" });
+
 
 module.exports = {
 
@@ -31,6 +35,33 @@ module.exports = {
                 "software":headers["user-agent"].match(/\(([^)]+)\)/)[1]
             }
         )
+    },
+
+    imageSearch: function(imageSearchString,offset, callback){
+        let newSearch = new ImageSearch({
+            term: imageSearchString,
+            when: new Date()
+        });
+        let skip = offset || 0;
+        newSearch.save().then(()=>{
+                Bing.images(imageSearchString, {top: 10, skip:skip},function(error, res, body){
+                    if(error){console.log(error);}
+                    callback(
+                        body.d.results.map(function(imageData){
+                            return {
+                                Snippet: imageData.Title,
+                                URL: imageData.MediaUrl,
+                                PageURL:imageData.SourceUrl
+                            }
+                        })
+                    );
+                })
+            }
+        );
+
+    },
+    recentImageSearches: function(callback){
+        ImageSearch.find().select({_id:0,term:1,when:1}).exec(callback);
     },
 
     urlShortener: function(href,res,callback){
@@ -69,7 +100,7 @@ module.exports = {
         this.getNextSequenceValue(function(err,doc){
             newUrl = new Url({
                 orig_url: href,
-                short_url: doc.count.toString(16)
+                short_url: doc.count.toString(16)//convert count to hex number
             });
             newUrl.save().then(function(url){
                 callback(url);
