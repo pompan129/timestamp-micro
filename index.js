@@ -9,6 +9,8 @@ var api         = require("./apis");
 var express     = require("express");
 var app         = express();
 var mongoose    = require("mongoose");
+var multer  = require('multer');
+var upload = multer({ dest: 'uploads/' });
 
 
 
@@ -62,6 +64,15 @@ app.get("/latest/imagesearch/",(req,res)=>{
             res.send(err)
         }
         res.send(searches);
+    })
+});
+
+app.post('/upload', upload.single('upload'), function (req, res, next) {
+    console.log("something uploaded", req.file.originalname);
+    res.send({
+        file: req.file.originalname,
+        size: req.file.size + " bytes",
+        mimetype: req.file.mimetype
     })
 });
 
